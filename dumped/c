@@ -1,327 +1,88 @@
 // dumped with csdumper (created by shxdow)
-// 2025-11-15 17:41:23 UTC
+// 2025-11-15 17:41:25 UTC
 
 namespace CS2Dumper.Schemas {
-    // Module: pulse_system.dll
-    // Class count: 37
-    // Enum count: 0
-    public static class PulseSystemDll {
+    // Module: rendersystemdx11.dll
+    // Class count: 8
+    // Enum count: 3
+    public static class Rendersystemdx11Dll {
         // Parent: None
-        // Field count: 1
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_Base {
-            public const nint m_nEditorNodeID = 0x8; // PulseDocNodeID_t
-        }
-        // Parent: None
-        // Field count: 2
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPulseEditorHeaderIcon
-        // MPropertyFriendlyName
-        public static class CPulseCell_WaitForObservable {
-            public const nint m_Condition = 0x48; // PulseObservableBoolExpression_t
-            public const nint m_OnTrue = 0xC0; // CPulse_ResumePoint
-        }
-        // Parent: None
-        // Field count: 14
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseGraphDef {
-            public const nint m_DomainIdentifier = 0x8; // PulseSymbol_t
-            public const nint m_DomainSubType = 0x18; // CPulseValueFullType
-            public const nint m_ParentMapName = 0x30; // PulseSymbol_t
-            public const nint m_ParentXmlName = 0x40; // PulseSymbol_t
-            public const nint m_Chunks = 0x50; // CUtlVector<CPulse_Chunk*>
-            public const nint m_Cells = 0x68; // CUtlVector<CPulseCell_Base*>
-            public const nint m_Vars = 0x80; // CUtlVector<CPulse_Variable>
-            public const nint m_PublicOutputs = 0x98; // CUtlVector<CPulse_PublicOutput>
-            public const nint m_InvokeBindings = 0xB0; // CUtlVector<CPulse_InvokeBinding*>
-            public const nint m_CallInfos = 0xC8; // CUtlVector<CPulse_CallInfo*>
-            public const nint m_Constants = 0xE0; // CUtlVector<CPulse_Constant>
-            public const nint m_DomainValues = 0xF8; // CUtlVector<CPulse_DomainValue>
-            public const nint m_BlackboardReferences = 0x110; // CUtlVector<CPulse_BlackboardReference>
-            public const nint m_OutputConnections = 0x128; // CUtlVector<CPulse_OutputConnection*>
-        }
-        // Parent: None
-        // Field count: 2
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_Timeline__TimelineEvent_t {
-            public const nint m_flTimeFromPrevious = 0x0; // float32
-            public const nint m_EventOutflow = 0x8; // CPulse_OutflowConnection
-        }
-        // Parent: None
-        // Field count: 0
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_IsRequirementValid {
-        }
-        // Parent: None
-        // Field count: 0
-        //
-        // Metadata:
-        // MPropertyDescription
-        public static class CPulseCursorFuncs {
+        // Field count: 4
+        public static class RsDepthStencilStateDesc_t {
+            public const nint m_bDepthTestEnable = 0x0; // bitfield:1
+            public const nint m_bDepthWriteEnable = 0x0; // bitfield:1
+            public const nint m_depthFunc = 0x1; // RsComparison_t
+            public const nint m_stencilState = 0x2; // RsStencilStateDesc_t
         }
         // Parent: None
         // Field count: 1
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_Inflow_GraphHook {
-            public const nint m_HookName = 0x80; // PulseSymbol_t
+        public static class SheetSequenceIntegerId_t {
+            public const nint m_Value = 0x0; // uint32
+        }
+        // Parent: None
+        // Field count: 11
+        public static class RsBlendStateDesc_t {
+            public const nint m_srcBlendBits = 0x0; // uint32
+            public const nint m_destBlendBits = 0x4; // uint32
+            public const nint m_srcBlendAlphaBits = 0x8; // uint32
+            public const nint m_destBlendAlphaBits = 0xC; // uint32
+            public const nint m_renderTargetWriteMaskBits = 0x10; // uint32
+            public const nint m_blendOpBits = 0x0; // bitfield:30
+            public const nint m_bAlphaToCoverageEnable = 0x0; // bitfield:1
+            public const nint m_bIndependentBlendEnable = 0x0; // bitfield:1
+            public const nint m_blendOpAlphaBits = 0x18; // uint32
+            public const nint m_blendEnableBits = 0x1C; // uint8
+            public const nint m_srgbWriteEnableBits = 0x1D; // uint8
         }
         // Parent: None
         // Field count: 4
-        public static class CPulseTurtleGraphicsCursor {
-            public const nint m_Color = 0xD0; // Color
-            public const nint m_vPos = 0xD4; // Vector2D
-            public const nint m_flHeadingDeg = 0xDC; // float32
-            public const nint m_bPenUp = 0xE0; // bool
+        public static class VsInputSignatureElement_t {
+            public const nint m_pName = 0x0; // char[64]
+            public const nint m_pSemantic = 0x40; // char[64]
+            public const nint m_pD3DSemanticName = 0x80; // char[64]
+            public const nint m_nD3DSemanticIndex = 0xC0; // int32
+        }
+        // Parent: None
+        // Field count: 7
+        public static class RsRasterizerStateDesc_t {
+            public const nint m_nFillMode = 0x0; // RsFillMode_t
+            public const nint m_nCullMode = 0x1; // RsCullMode_t
+            public const nint m_bDepthClipEnable = 0x2; // bool
+            public const nint m_bMultisampleEnable = 0x3; // bool
+            public const nint m_nDepthBias = 0x4; // int32
+            public const nint m_flDepthBiasClamp = 0x8; // float32
+            public const nint m_flSlopeScaledDepthBias = 0xC; // float32
+        }
+        // Parent: None
+        // Field count: 11
+        public static class RsStencilStateDesc_t {
+            public const nint m_bStencilEnable = 0x0; // bitfield:1
+            public const nint m_frontStencilFailOp = 0x0; // bitfield:3
+            public const nint m_frontStencilDepthFailOp = 0x0; // bitfield:3
+            public const nint m_frontStencilPassOp = 0x0; // bitfield:3
+            public const nint m_frontStencilFunc = 0x0; // bitfield:3
+            public const nint m_backStencilFailOp = 0x0; // bitfield:3
+            public const nint m_backStencilDepthFailOp = 0x0; // bitfield:3
+            public const nint m_backStencilPassOp = 0x0; // bitfield:3
+            public const nint m_backStencilFunc = 0x0; // bitfield:3
+            public const nint m_nStencilReadMask = 0x4; // uint8
+            public const nint m_nStencilWriteMask = 0x5; // uint8
         }
         // Parent: None
         // Field count: 2
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_Inflow_BaseEntrypoint {
-            public const nint m_EntryChunk = 0x48; // PulseRuntimeChunkIndex_t
-            public const nint m_RegisterMap = 0x50; // PulseRegisterMap_t
-        }
-        // Parent: None
-        // Field count: 0
-        //
-        // Metadata:
-        // MPropertyDescription
-        public static class CPulseTestScriptLib {
-        }
-        // Parent: None
-        // Field count: 0
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPropertyFriendlyName
-        // MPropertyDescription
-        public static class CPulseCell_Value_TestValue50 {
-        }
-        // Parent: None
-        // Field count: 1
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_Inflow_EventHandler {
-            public const nint m_EventName = 0x80; // PulseSymbol_t
-        }
-        // Parent: None
-        // Field count: 0
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPropertyFriendlyName
-        public static class CPulseCell_Step_TestDomainTracepoint {
-        }
-        // Parent: None
-        // Field count: 2
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_Outflow_CycleShuffled__InstanceState_t {
-            public const nint m_Shuffle = 0x0; // CUtlVectorFixedGrowable<uint8,8>
-            public const nint m_nNextShuffle = 0x20; // int32
-        }
-        // Parent: None
-        // Field count: 2
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_BaseLerp__CursorState_t {
-            public const nint m_StartTime = 0x0; // GameTime_t
-            public const nint m_EndTime = 0x4; // GameTime_t
-        }
-        // Parent: None
-        // Field count: 1
-        public static class CPulseCell_WaitForCursorsWithTagBase__CursorState_t {
-            public const nint m_TagName = 0x0; // PulseSymbol_t
-        }
-        // Parent: None
-        // Field count: 0
-        //
-        // Metadata:
-        // MPropertyDescription
-        public static class CPulseArraylib {
-        }
-        // Parent: None
-        // Field count: 2
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_Inflow_ObservableVariableListener {
-            public const nint m_nBlackboardReference = 0x80; // PulseRuntimeBlackboardReferenceIndex_t
-            public const nint m_bSelfReference = 0x82; // bool
-        }
-        // Parent: None
-        // Field count: 1
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_Outflow_CycleOrdered {
-            public const nint m_Outputs = 0x48; // CUtlVector<CPulse_OutflowConnection>
-        }
-        // Parent: None
-        // Field count: 1
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class PulseSelectorOutflowList_t {
-            public const nint m_Outflows = 0x0; // CUtlVector<OutflowWithRequirements_t>
-        }
-        // Parent: None
-        // Field count: 0
-        public static class CPulseGraphInstance_TurtleGraphics {
-        }
-        // Parent: None
-        // Field count: 1
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPropertyFriendlyName
-        // MPropertyDescription
-        // MPulseEditorHeaderIcon
-        // MPulseEditorCanvasItemSpecKV3
-        public static class CPulseCell_Inflow_Wait {
-            public const nint m_WakeResume = 0x48; // CPulse_ResumePoint
-        }
-        // Parent: None
-        // Field count: 1
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulseCell_Outflow_CycleShuffled {
-            public const nint m_Outputs = 0x48; // CUtlVector<CPulse_OutflowConnection>
-        }
-        // Parent: None
-        // Field count: 4
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPropertyFriendlyName
-        // MPropertyDescription
-        // MPulseEditorCanvasItemSpecKV3
-        public static class CPulseCell_BooleanSwitchState {
-            public const nint m_Condition = 0x48; // PulseObservableBoolExpression_t
-            public const nint m_SubGraph = 0xC0; // CPulse_OutflowConnection
-            public const nint m_WhenTrue = 0x108; // CPulse_OutflowConnection
-            public const nint m_WhenFalse = 0x150; // CPulse_OutflowConnection
-        }
-        // Parent: None
-        // Field count: 0
-        public static class FakeEntityDerivedB_tAPI {
-        }
-        // Parent: None
-        // Field count: 1
-        public static class CPulseCell_Unknown {
-            public const nint m_UnknownKeys = 0x48; // KeyValues3
-        }
-        // Parent: None
-        // Field count: 0
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPropertyFriendlyName
-        public static class CPulseCell_Val_TestDomainFindEntityByName {
-        }
-        // Parent: None
-        // Field count: 4
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulse_BlackboardReference {
-            public const nint m_hBlackboardResource = 0x0; // CStrongHandle<InfoForResourceTypeIPulseGraphDef>
-            public const nint m_BlackboardResource = 0x8; // PulseSymbol_t
-            public const nint m_nNodeID = 0x18; // PulseDocNodeID_t
-            public const nint m_NodeName = 0x20; // CGlobalSymbol
-        }
-        // Parent: None
-        // Field count: 1
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPropertyFriendlyName
-        // MPulseEditorHeaderText
-        public static class CPulseCell_Step_TestDomainEntFire {
-            public const nint m_Input = 0x48; // CUtlString
-        }
-        // Parent: None
-        // Field count: 0
-        public static class FakeEntityDerivedA_tAPI {
-        }
-        // Parent: None
-        // Field count: 1
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPropertyFriendlyName
-        // MPropertyDescription
-        // MPulseEditorHeaderIcon
-        // MPulseEditorCanvasItemSpecKV3
-        public static class CPulseCell_ExampleSelector {
-            public const nint m_OutflowList = 0x48; // PulseSelectorOutflowList_t
+        public static class VsInputSignature_t {
+            public const nint m_elems = 0x0; // CUtlVector<VsInputSignatureElement_t>
+            public const nint m_depth_elems = 0x18; // CUtlVector<VsInputSignatureElement_t>
         }
         // Parent: None
         // Field count: 6
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CPulse_CallInfo {
-            public const nint m_PortName = 0x0; // PulseSymbol_t
-            public const nint m_nEditorNodeID = 0x10; // PulseDocNodeID_t
-            public const nint m_RegisterMap = 0x18; // PulseRegisterMap_t
-            public const nint m_CallMethodID = 0x48; // PulseDocNodeID_t
-            public const nint m_nSrcChunk = 0x4C; // PulseRuntimeChunkIndex_t
-            public const nint m_nSrcInstruction = 0x50; // int32
-        }
-        // Parent: None
-        // Field count: 0
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPropertyFriendlyName
-        public static class CPulseCell_Step_TestDomainCreateFakeEntity {
-        }
-        // Parent: None
-        // Field count: 1
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPropertyFriendlyName
-        // MPropertyDescription
-        // MPulseEditorHeaderIcon
-        public static class CPulseCell_CursorQueue {
-            public const nint m_nCursorsAllowedToRunParallel = 0x98; // int32
-        }
-        // Parent: None
-        // Field count: 0
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        // MPropertyFriendlyName
-        // MPropertyDescription
-        // MPulseEditorHeaderIcon
-        public static class CPulseCell_Value_RandomFloat {
-        }
-        // Parent: None
-        // Field count: 0
-        public static class CPulseExecCursor {
-        }
-        // Parent: None
-        // Field count: 0
-        public static class PulseCursorCancelPriority_t {
+        public static class RenderInputLayoutField_t {
+            public const nint m_pSemanticName = 0x0; // char[32]
+            public const nint m_nSemanticIndex = 0x20; // int8
+            public const nint m_nOffset = 0x28; // int16
+            public const nint m_nSlot = 0x2A; // int8
+            public const nint m_nSlotType = 0x2B; // RenderSlotType_t
+            public const nint m_szShaderSemantic = 0x2C; // char[32]
         }
     }
 }

@@ -1,22 +1,22 @@
 // dumped with csdumper (created by shxdow)
-// 2025-10-18 16:17:21 UTC
+// 2025-11-15 17:39:53 UTC
 {
   "client.dll": {
-    "attack": 29183888,
-    "attack2": 29184032,
-    "back": 29184608,
-    "duck": 29185328,
-    "forward": 29184464,
-    "jump": 29185184,
-    "left": 29184752,
-    "lookatweapon": 31622944,
-    "reload": 29183744,
-    "right": 29184896,
-    "showscores": 31622656,
-    "sprint": 29183600,
-    "turnleft": 29184176,
-    "turnright": 29184320,
-    "use": 29185040,
-    "zoom": 31622800
+    "attack": 29254560,
+    "attack2": 29254704,
+    "back": 29255280,
+    "duck": 29256000,
+    "forward": 29255136,
+    "jump": 29255856,
+    "left": 29255424,
+    "lookatweapon": 31694960,
+    "reload": 29254416,
+    "right": 29255568,
+    "showscores": 31694672,
+    "sprint": 29254272,
+    "turnleft": 29254848,
+    "turnright": 29254992,
+    "use": 29255712,
+    "zoom": 31694816
   }
 }

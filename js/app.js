@@ -1,8 +1,8 @@
 // -------------------- CONFIG --------------------
 const JSON_FILES = [
     "dumped/json/client_dll.json",
-    "dumped/json/buttons.json",
-    "dumped/json/engine2.json",
+    "dumped/json/buttons_dll.json",
+    "dumped/json/engine2_dll.json",
     "dumped/json/offsets.json"
 ];
 
@@ -258,3 +258,4 @@ function selectClass(className, element, term) {
 
 // -------------------- INIT --------------------
 window.addEventListener("DOMContentLoaded", fetchData);
+

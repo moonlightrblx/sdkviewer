@@ -1,98 +1,82 @@
 // dumped with csdumper (created by shxdow)
-// 2025-11-15 17:41:27 UTC
+// 2025-11-15 17:41:28 UTC
 
 namespace CS2Dumper.Schemas {
-    // Module: scenesystem.dll
-    // Class count: 9
-    // Enum count: 3
-    public static class ScenesystemDll {
-        // Parent: None
-        // Field count: 10
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CSSDSMsg_ViewTarget {
-            public const nint m_Name = 0x0; // CUtlString
-            public const nint m_TextureId = 0x8; // uint64
-            public const nint m_nWidth = 0x10; // int32
-            public const nint m_nHeight = 0x14; // int32
-            public const nint m_nRequestedWidth = 0x18; // int32
-            public const nint m_nRequestedHeight = 0x1C; // int32
-            public const nint m_nNumMipLevels = 0x20; // int32
-            public const nint m_nDepth = 0x24; // int32
-            public const nint m_nMultisampleNumSamples = 0x28; // int32
-            public const nint m_nFormat = 0x2C; // int32
-        }
-        // Parent: None
-        // Field count: 2
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class SceneViewId_t {
-            public const nint m_nViewId = 0x0; // uint64
-            public const nint m_nFrameCount = 0x8; // uint64
-        }
-        // Parent: None
-        // Field count: 2
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CSSDSEndFrameViewInfo {
-            public const nint m_nViewId = 0x0; // uint64
-            public const nint m_ViewName = 0x8; // CUtlString
-        }
+    // Module: schemasystem.dll
+    // Class count: 7
+    // Enum count: 0
+    public static class SchemasystemDll {
         // Parent: None
         // Field count: 0
         //
         // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CSSDSMsg_PostLayer {
+        // MResourceTypeForInfoType
+        public static class InfoForResourceTypeCResourceManifestInternal {
         }
         // Parent: None
-        // Field count: 5
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CSSDSMsg_LayerBase {
-            public const nint m_viewId = 0x0; // SceneViewId_t
-            public const nint m_ViewName = 0x10; // CUtlString
-            public const nint m_nLayerId = 0x18; // uint64
-            public const nint m_LayerName = 0x20; // CUtlString
-            public const nint m_displayText = 0x28; // CUtlString
-        }
-        // Parent: None
-        // Field count: 0
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CSSDSMsg_PreLayer {
-        }
-        // Parent: None
-        // Field count: 3
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CSSDSMsg_ViewTargetList {
-            public const nint m_viewId = 0x0; // SceneViewId_t
-            public const nint m_ViewName = 0x10; // CUtlString
-            public const nint m_Targets = 0x18; // CUtlVector<CSSDSMsg_ViewTarget>
-        }
-        // Parent: None
-        // Field count: 2
-        //
-        // Metadata:
-        // MGetKV3ClassDefaults
-        public static class CSSDSMsg_ViewRender {
-            public const nint m_viewId = 0x0; // SceneViewId_t
-            public const nint m_ViewName = 0x10; // CUtlString
+        // Field count: 23
+        public static class CSchemaSystemInternalRegistration {
+            public const nint m_Vector2D = 0x0; // Vector2D
+            public const nint m_Vector = 0x8; // Vector
+            public const nint m_VectorWS = 0x14; // VectorWS
+            public const nint m_VectorAligned = 0x20; // VectorAligned
+            public const nint m_Quaternion = 0x30; // Quaternion
+            public const nint m_QAngle = 0x40; // QAngle
+            public const nint m_RotationVector = 0x4C; // RotationVector
+            public const nint m_RadianEuler = 0x58; // RadianEuler
+            public const nint m_DegreeEuler = 0x64; // DegreeEuler
+            public const nint m_QuaternionStorage = 0x70; // QuaternionStorage
+            public const nint m_matrix3x4_t = 0x80; // matrix3x4_t
+            public const nint m_matrix3x4a_t = 0xB0; // matrix3x4a_t
+            public const nint m_Color = 0xE0; // Color
+            public const nint m_Vector4D = 0xE4; // Vector4D
+            public const nint m_CTransform = 0x100; // CTransform
+            public const nint m_pKeyValues = 0x120; // KeyValues*
+            public const nint m_CUtlBinaryBlock = 0x128; // CUtlBinaryBlock
+            public const nint m_CUtlString = 0x138; // CUtlString
+            public const nint m_CUtlSymbol = 0x140; // CUtlSymbol
+            public const nint m_stringToken = 0x144; // CUtlStringToken
+            public const nint m_stringTokenWithStorage = 0x148; // CUtlStringTokenWithStorage
+            public const nint m_ResourceTypes = 0x160; // CResourceArray<CResourcePointer<CResourceString>>
+            public const nint m_KV3 = 0x168; // KeyValues3
         }
         // Parent: None
         // Field count: 1
         //
         // Metadata:
         // MGetKV3ClassDefaults
-        public static class CSSDSMsg_EndFrame {
-            public const nint m_Views = 0x0; // CUtlVector<CSSDSEndFrameViewInfo>
+        public static class CExampleSchemaVData_PolymorphicDerivedA {
+            public const nint m_nDerivedA = 0x10; // int32
+        }
+        // Parent: None
+        // Field count: 1
+        //
+        // Metadata:
+        // MGetKV3ClassDefaults
+        public static class CExampleSchemaVData_PolymorphicBase {
+            public const nint m_nBase = 0x8; // int32
+        }
+        // Parent: None
+        // Field count: 1
+        //
+        // Metadata:
+        // MGetKV3ClassDefaults
+        public static class CExampleSchemaVData_PolymorphicDerivedB {
+            public const nint m_nDerivedB = 0x10; // int32
+        }
+        // Parent: None
+        // Field count: 1
+        public static class ResourceId_t {
+            public const nint m_Value = 0x0; // uint64
+        }
+        // Parent: None
+        // Field count: 2
+        //
+        // Metadata:
+        // MGetKV3ClassDefaults
+        public static class CExampleSchemaVData_Monomorphic {
+            public const nint m_nExample1 = 0x0; // int32
+            public const nint m_nExample2 = 0x4; // int32
         }
     }
 }

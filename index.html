@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="wdth=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>verze — sdk viewer</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
@@ -20,6 +20,9 @@
   <header>
   <h1>verze</h1>
   <div class="subtitle">explore classes, fields, and methods</div>
+  <div class="download-area">
+
+
 </header>
 
   <div class="wrapper">
@@ -33,6 +36,12 @@
           </div>
           <button class="clear-btn" id="clearbtn">✕</button>
         </div>
+          <a href="https://github.com/moonlightrblx/sdkviewer/raw/main/dumped/generated_latest.zip" 
+     class="download-btn" 
+     download="generated_latest.zip">
+    Download SDK
+  </a>
+  
 
         <div class="syntax">
           <div><strong style="color:var(--text-accent)">search syntax</strong></div>
@@ -45,7 +54,7 @@
       <div class="class-list" id="classlist"></div>
       <div class="footer-note">select a class to view fields & methods</div>
     </aside>
-
+    
     <section class="content" id="content">
       <div class="card small">
         select a class from the left or start typing. matches will auto-open and highlight.
@@ -60,4 +69,3 @@
 </body>
 
 </html>
-

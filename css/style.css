@@ -350,3 +350,18 @@ tbody tr:hover {
   background: rgba(67, 59, 255, 0.1);
   transition: background 0.2s ease;
 }
+.download-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--text-accent);
+  color: #fff;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.download-btn:hover {
+  background-color: #ff5f5f; /* example hover color */
+}

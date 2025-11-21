@@ -1,11 +1,10 @@
 // -------------------- CONFIG --------------------
 const JSON_FILES = [
     "dumped/json/client_dll.json",
-    "dumped/json/buttons_dll.json",
+    "dumped/json/buttons.json",
     "dumped/json/engine2_dll.json",
     "dumped/json/offsets.json"
 ];
-
 let allClasses = {}, lastQuery = "";
 
 // -------------------- CLEAN JSON STRING --------------------
@@ -258,4 +257,3 @@ function selectClass(className, element, term) {
 
 // -------------------- INIT --------------------
 window.addEventListener("DOMContentLoaded", fetchData);
-

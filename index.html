@@ -1,76 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>verze — sdk viewer</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moonlight by ellii – CS2 SDK Viewer</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
-
 <body>
-  <div class="background">
-    <div class="aurora"></div>
+
+  <div id="sidebar">
+    <div class="header">
+      <div data-lucide="moon"></div>
+      <div class="title">MoonLight</div>
+      <div class="subtitle">by ellii</div>
+      <div class="subtitle"><a href="https://github.com/moonlightrblx/sdkviewer"> view on github</a></div>
+    </div>
+
+    <div id="search">
+      <div class="search-wrapper">
+        <i data-lucide="search" class="icon"></i>
+        <input type="text" id="search-input" placeholder="Search classes, fields, offsets..." autofocus />
+      </div>
+      <div id="search-hint">
+        Try: <code>class:CBasePlayerPawn</code> • <code>offset:client</code> • <code>m_iHealth</code>
+      </div>
+    </div>
+
+    <div id="classlist" role="listbox"></div>
+
+    <div class="download-area">
+      <a href="https://github.com/moonlightrblx/sdkviewer/raw/main/dumped/generated_latest.zip" class="download-btn" download>
+        <i data-lucide="package" class="icon"></i>
+        <span>Download SDK Dump</span>
+      </a>
+      <a href="https://github.com/moonlightrblx/sdkviewer/raw/main/dumped/schema_latest.zip" class="download-btn" download>
+        <i data-lucide="database" class="icon"></i>
+        <span>Download Schema</span>
+      </a>
+    </div>
   </div>
 
-  <canvas id="bgcanvas"></canvas>
-  <div id="cursor"></div>
-
-  <header>
-  <h1>verze</h1>
-  <div class="subtitle">explore classes, fields, and methods</div>
-  <div class="download-area">
-
-
-</header>
-
-  <div class="wrapper">
-    <aside class="sidebar">
-      <div class="search-area">
-        <div class="search-ui" id="searchui" tabindex="0">
-          <div class="input-display" id="inputdisplay">
-            <div class="chars" id="chars">
-              <span class="input-placeholder" id="ph">search: class:name or offset:health or plain text</span>
-            </div>
-          </div>
-          <button class="clear-btn" id="clearbtn">✕</button>
-        </div>
-          <a href="https://github.com/moonlightrblx/sdkviewer/raw/main/dumped/generated_latest.zip" 
-     class="download-btn" 
-     download="generated_latest.zip">
-    Download SDK
-  </a>
-  <a href="https://github.com/moonlightrblx/sdkviewer/raw/main/dumped/schema_latest.zip" 
-     class="download-btn" 
-     download="schema_latest.zip">
-    Download Schema
-  </a>
-
-        <div class="syntax">
-          <div><strong style="color:var(--text-accent)">search syntax</strong></div>
-          <div><code>class:&lt;name&gt;</code> — class names only</div>
-          <div><code>offset:&lt;name&gt;</code> — field/offset names only</div>
-          <div><code>plain text</code> — classes & offsets</div>
-        </div>
-      </div>
-
-      <div class="class-list" id="classlist"></div>
-      <div class="footer-note">select a class to view fields & methods</div>
-    </aside>
-    
-    <section class="content" id="content">
-      <div class="card small">
-        select a class from the left or start typing. matches will auto-open and highlight.
-      </div>
-    </section>
+  <div id="main">
+    <div id="content"></div>
   </div>
 
-  <footer class="watermark">verze sdk viewer — made by ellii</footer>
-
+  <!-- Your original app logic -->
   <script src="js/app.js"></script>
-  <script src="js/misc.js"></script>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Live search
+    document.getElementById('search-input').addEventListener('input', e => {
+      renderClassList(e.target.value);
+    });
+
+    // Auto-replace <details> arrows with Lucide chevrons
+    const updateDetailsIcons = () => {
+      document.querySelectorAll('details').forEach(d => {
+        let icon = d.querySelector('summary .lucide-chevron');
+        if (!icon) {
+          icon = document.createElement('i');
+          icon.className = 'lucide-chevron';
+          icon.dataset.lucide = d.open ? 'chevron-down' : 'chevron-right';
+          d.querySelector('summary').insertBefore(icon, d.querySelector('summary').firstChild);
+        } else {
+          icon.dataset.lucide = d.open ? 'chevron-down' : 'chevron-right';
+        }
+      });
+      lucide.createIcons();
+    };
+
+  </script>
 </body>
-
 </html>
-

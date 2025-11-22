@@ -1,242 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>advantage.wtf - CS2 SDK Viewer</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-:root {
-  --bg: #18181b;
-  --sidebar: #1e1e22;
-  --sidebar-hover: #2a2a30;
-  --sidebar-active: #34343c;
-  --card: #27272a;
-  --text: #f5f5f5;
-  --muted: #9ca3af;
-  --accent: #a855f7;
-  --border: #3f3f46;
-  --transition: 0.25s ease;
-  --sidebar-width: 280px;
-  --sidebar-expanded: 340px;
-}
-
-/* Reset & cursor */
-* { box-sizing: border-box; cursor: none; }
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  margin:0; background: var(--bg); color: var(--text);
-  display: flex; flex-direction: column; height: 100vh; overflow:hidden;
-}
-.cursor {
-  width: 10px; height: 10px; background: var(--accent);
-  border-radius: 50%; position: fixed; transform: translate(-50%,-50%);
-  pointer-events:none; z-index:2000; box-shadow: 0 0 12px rgba(168,85,247,0.6);
-  transition: transform 0.1s ease;
-}
-
-/* Header */
-header {
-  height: 60px; background: var(--sidebar-active); border-bottom:1px solid var(--border);
-  display:flex; align-items:center; justify-content:space-between; padding:0 1rem; z-index:100;
-}
-.brand { font-size:1.3rem; font-weight:bold; color: var(--accent); display:flex; align-items:center; gap:0.5rem;}
-.header-right { display:flex; align-items:center; gap:1rem;}
-.search input {
-  padding:0.45rem 0.8rem; border-radius:8px; border:1px solid var(--border); background:#111; color:var(--text);
-  font-size:0.9rem; transition:border var(--transition);
-}
-.search input:focus { outline:none; border:1px solid var(--accent); }
-.btn { background:var(--accent); color:white; border:none; padding:0.5rem 1rem; border-radius:8px;
-  font-size:0.9rem; cursor:pointer; transition: transform var(--transition), background var(--transition);
-  display:flex; align-items:center; gap:0.5rem;}
-.btn:hover { transform: scale(1.05); background:#9333ea; }
-
-/* Layout */
-.container { display:flex; flex:1; overflow:hidden; animation: containerFade 0.8s ease forwards; opacity:0; }
-@keyframes containerFade { 0%{opacity:0; transform: translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
-
-/* Sidebar */
-.sidebar {
-  width: var(--sidebar-width); background:var(--sidebar); border-right:1px solid var(--border); overflow-y:auto;
-  transition: width 0.3s var(--transition), box-shadow 0.3s var(--transition);
-}
-.sidebar:hover { width: var(--sidebar-expanded); box-shadow: 2px 0 10px rgba(0,0,0,0.5);}
-.class-list { flex:1; overflow-y:auto; padding-top:0.5rem; }
-.class-item {
-  padding:0.6rem 1rem; cursor:pointer; transition: background var(--transition), transform var(--transition);
-  border-left:3px solid transparent; font-size:0.9rem; opacity:0; transform:translateX(-20px);
-}
-.class-item.show { opacity:1; transform:translateX(0); transition: transform 0.3s ease, opacity 0.3s ease;}
-.class-item:hover { background:var(--sidebar-hover); transform:translateX(3px);}
-.class-item.active { background:var(--sidebar-active); border-left:3px solid var(--accent); font-weight:bold;}
-
-/* Content */
-.content { flex:1; padding:1rem 2rem; overflow-y:auto; }
-h2 { margin:0 0 1rem; font-size:1.4rem; color: var(--accent);}
-h3 { margin-top:1.2rem; margin-bottom:0.4rem; color: var(--accent); }
-
-/* Custom table */
-.table-wrapper { overflow-x:auto; }
-table {
-  width:100%; border-spacing:0; margin-bottom:1rem; font-size:0.9rem; border-radius:10px; overflow:hidden;
-  animation: fadeSlide 0.5s ease forwards; opacity:0; transform:translateY(10px);
-}
-@keyframes fadeSlide { 0%{opacity:0; transform:translateY(10px);} 100%{opacity:1; transform:translateY(0);} }
-table thead { background:#333; }
-table th, table td { padding:0.8rem 1rem; text-align:left; }
-table th { color:var(--accent); font-weight:600; font-size:0.85rem; }
-table tbody tr { background:var(--card); transition: background var(--transition);}
-table tbody tr:nth-child(odd){background:#1f1f23;}
-table tbody tr:hover{background:#323236;}
-table td{border-top:1px solid var(--border);}
-
-.card { background:var(--card); border-radius:12px; padding:1rem 1.5rem; box-shadow:0 2px 6px rgba(0,0,0,0.3);
-  margin-bottom:1.5rem; animation: fadeSlide 0.5s ease forwards; }
-
-/* Footer */
-footer { text-align:center; padding:0.6rem; font-size:0.8rem; color:var(--muted);
-border-top:1px solid var(--border); background:var(--sidebar-active); }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>verze — SDK Viewer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-<div class="cursor"></div>
-<header>
-  <div class="brand"><i class="fa-solid fa-code"></i> advantage.wtf</div>
-  <div class="header-right">
-    <div class="search"><input type="text" id="searchBar" placeholder=""></div>
-    <a href="https://discord.gg/mUwbMhGf" target="_blank" class="btn"><i class="fa-brands fa-discord"></i> Join Discord</a>
+  <!-- Animated Background -->
+  <div class="background">
+    <div class="aurora"></div>
   </div>
-</header>
+  <canvas id="bgcanvas"></canvas>
 
-<div class="container">
-  <aside class="sidebar"><div class="class-list" id="classList"></div></aside>
-  <main class="content" id="content">
-    <p style="color: var(--muted);">Select a class from the left to view details.</p>
-  </main>
-</div>
+  <!-- Custom Cursor (optional, can be removed if not wanted) -->
+  <div id="cursor"></div>
 
-<footer>SDK dumped by <b>cloud</b> — site created by <b>cloud</b></footer>
+  <!-- Header -->
+  <header>
+    <h1>verze</h1>
+    <p class="subtitle">explore classes • fields • methods</p>
+  </header>
 
-<script>
-const JSON_FILES = [
-  "dumped/json/client_dll.json",
-  "dumped/json/buttons.json",
-  "dumped/json/engine2_dll.json"
-];
-let allClasses = {};
+  <!-- Main Layout -->
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="search-area">
+        <div class="search-ui" id="searchui" tabindex="0" aria-label="Search classes and offsets">
+          <div class="input-display" id="inputdisplay">
+            <div class="chars" id="chars">
+              <span class="input-placeholder" id="ph">search: class:name • offset:health • or plain text</span>
+            </div>
+          </div>
+          <button class="clear-btn" id="clearbtn" aria-label="Clear search">✕</button>
+        </div>
 
-async function fetchData() {
-  for (const file of JSON_FILES){
-    try{
-      const data = await fetch(file).then(r=>r.json());
-      const world = Object.keys(data)[0];
-      const content = data[world];
-      if(content.classes){
-        for(const [name, cls] of Object.entries(content.classes)){
-          allClasses[name]=cls;
-        }
-      }
-    }catch(err){ console.error("Failed to load",file,err); }
-  }
-  renderClassList();
-}
+        <div class="download-area">
+          <a href="https://github.com/moonlightrblx/sdkviewer/raw/main/dumped/generated_latest.zip"
+             class="download-btn" download>
+            <span>Download SDK Dump</span>
+          </a>
+          <a href="https://github.com/moonlightrblx/sdkviewer/raw/main/dumped/schema_latest.zip"
+             class="download-btn" download>
+            <span>Download Schema</span>
+          </a>
+        </div>
 
-function renderClassList(filter=""){
-  const list=document.getElementById("classList");
-  list.innerHTML="";
-  const classes=Object.keys(allClasses).sort();
-  classes.forEach((className,i)=>{
-    if(!className.toLowerCase().includes(filter.toLowerCase())) return;
-    const div=document.createElement("div");
-    div.className="class-item";
-    div.textContent=className;
-    setTimeout(()=>div.classList.add("show"),i*50); // stagger animation
-    div.onclick=()=>selectClass(className,div);
-    list.appendChild(div);
-  });
-}
+        <div class="syntax">
+          <strong>Search Syntax</strong>
+          <code>class:&lt;name&gt;</code> → class names only<br>
+          <code>offset:&lt;name&gt;</code> → field/offset names only<br>
+          <code>plain text</code> → everything
+        </div>
+      </div>
 
-function selectClass(className,element){
-  document.querySelectorAll(".class-item").forEach(e=>e.classList.remove("active"));
-  element.classList.add("active");
-  const content=document.getElementById("content"); content.innerHTML="";
-  const cls=allClasses[className];
-  const card=document.createElement("div"); card.className="card";
-  const title=document.createElement("h2");
-  title.textContent=`class ${className}${cls.parent?" : "+cls.parent:""}`;
-  card.appendChild(title);
+      <div class="class-list" id="classlist" role="listbox" aria-label="Classes"></div>
+      <div class="footer-note">Select a class to view details</div>
+    </aside>
 
-  // Fields
-  if(cls.fields){
-    const h3=document.createElement("h3"); h3.textContent="Fields"; card.appendChild(h3);
-    const tableWrapper=document.createElement("div"); tableWrapper.className="table-wrapper";
-    const table=document.createElement("table"); table.innerHTML="<thead><tr><th>Name</th><th>Type</th><th>Offset</th></tr></thead>";
-    const tbody=document.createElement("tbody");
-    for(const [field, info] of Object.entries(cls.fields)){
-      let offset="?", type=guessType(field);
-      if(typeof info==="object"){ offset=info.offset!==undefined?"0x"+info.offset.toString(16):"?"; }
-      else{ offset="0x"+info.toString(16); }
-      const tr=document.createElement("tr");
-      tr.innerHTML=`<td>${field}</td><td>${type}</td><td>${offset}</td>`;
-      tbody.appendChild(tr);
-    }
-    table.appendChild(tbody); tableWrapper.appendChild(table); card.appendChild(tableWrapper);
-  }
+    <!-- Main Content -->
+    <main class="content" id="content">
+      <div class="card placeholder">
+        <p>Select a class from the sidebar or start typing.<br>Matching results will auto-open and highlight.</p>
+      </div>
+    </main>
+  </div>
 
-  // Methods
-  if(cls.methods){
-    const h3=document.createElement("h3"); h3.textContent="Methods"; card.appendChild(h3);
-    const tableWrapper=document.createElement("div"); tableWrapper.className="table-wrapper";
-    const table=document.createElement("table"); table.innerHTML="<thead><tr><th>Name</th><th>Return Type</th><th>Args</th></thead>";
-    const tbody=document.createElement("tbody");
-    for(const [method, info] of Object.entries(cls.methods)){
-      const returnType=info.return_type||"void";
-      const args=(info.args||[]).map(a=>`${a.type_name||"?"} ${a.name||""}`).join(", ");
-      const tr=document.createElement("tr");
-      tr.innerHTML=`<td>${method}</td><td>${returnType}</td><td>${args}</td>`;
-      tbody.appendChild(tr);
-    }
-    table.appendChild(tbody); tableWrapper.appendChild(table); card.appendChild(tableWrapper);
-  }
+  <footer class="watermark">verze sdk viewer — made by ellii</footer>
 
-  content.appendChild(card);
-}
-
-// Guess type by prefix
-function guessType(fieldName){
-  if(fieldName.startsWith("m_fl")) return "float";
-  if(fieldName.startsWith("m_i")) return "int";
-  if(fieldName.startsWith("m_b")) return "bool";
-  if(fieldName.startsWith("m_sz")||fieldName.startsWith("m_psz")) return "char*";
-  if(fieldName.startsWith("m_h")) return "handle";
-  if(fieldName.startsWith("m_vec")) return "Vector";
-  if(fieldName.startsWith("m_ang")) return "QAngle";
-  return "unknown";
-}
-
-// Search bar
-const searchInput=document.getElementById("searchBar");
-searchInput.addEventListener("input",e=>renderClassList(e.target.value));
-
-// Custom cursor
-const cursor=document.querySelector(".cursor");
-document.addEventListener("mousemove",e=>{
-  cursor.style.left=e.pageX+"px"; cursor.style.top=e.pageY+"px";
-});
-
-// Typing animation for search placeholder
-const placeholderText="Search classes...";
-let i=0;
-function typePlaceholder(){
-  if(i<=placeholderText.length){
-    searchInput.setAttribute("placeholder",placeholderText.substring(0,i));
-    i++; setTimeout(typePlaceholder,70);
-  }
-}
-typePlaceholder();
-
-fetchData();
-</script>
+  <script src="js/app.js"></script>
+  <script src="js/misc.js"></script>
 </body>
 </html>
